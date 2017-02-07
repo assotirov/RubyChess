@@ -35,7 +35,7 @@ class Piece
     return @loc[1]
   end
 
-  def move(loc, board_snapshot)
+  def move(loc)
     @loc = loc
     update_move_set
   end
