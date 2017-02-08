@@ -1,11 +1,11 @@
-load "Piece.rb"
+load 'Piece.rb'
 
 class Bishop < Piece
   attr_reader :loc
 
   def initialize(board, color, loc = nil)
     super(board, color, loc)
-    @name = "Bishop"
+    @name = 'Bishop'
     @loc = loc
     if color == :black
       @sym = :b
