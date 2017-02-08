@@ -1,7 +1,7 @@
-require "yaml"
-load "Board.rb"
-load "Pieces.rb"
-load "Player.rb"
+require 'yaml'
+load 'Board.rb'
+load 'Pieces.rb'
+load 'Player.rb'
 
 class ChessGame
 

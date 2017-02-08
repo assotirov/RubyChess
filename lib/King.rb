@@ -87,8 +87,8 @@ class King < Piece
   def update_move_set
     @move_set = []
     @move_set += castle_moves
-    (-1).upto(1) do |x|
-      (-1).upto(1) do |y|
+    -1.upto(1) do |x|
+      -1.upto(1) do |y|
         new_loc = [@loc[0] + x, @loc[1] + y]
         if new_loc == @loc
           next

@@ -101,7 +101,7 @@ class Board
       false
     end
   end
-  
+
   def self.on_board?(loc)
     if loc[0].between?(0, 7) && loc[1].between?(0, 7)
       true

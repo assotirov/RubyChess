@@ -1,4 +1,4 @@
-load "Piece.rb"
+load 'Piece.rb'
 
 class Rook < Piece
 
@@ -6,7 +6,7 @@ class Rook < Piece
 
   def initialize(board, color, loc = nil)
     super(board, color, loc)
-    @name = "Rook"
+    @name = 'Rook'
     @loc = loc
     if color == :black
       @sym = :r

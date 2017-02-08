@@ -1,4 +1,4 @@
-load "Piece.rb"
+load 'Piece.rb'
 
 class Pawn < Piece
   attr_reader :loc
@@ -57,7 +57,7 @@ class Pawn < Piece
   end
 
   def update_move_set
-    moves = [[@loc[0] + 1,@loc[1] + 1], [@loc[0] - 1, @loc[1] + 1], [@loc[0],@loc[1] + 1], [@loc[0], @loc[1] + 2]] if @color == :white
+    moves = [[@loc[0] + 1, @loc[1] + 1], [@loc[0] - 1, @loc[1] + 1], [@loc[0], @loc[1] + 1], [@loc[0], @loc[1] + 2]] if @color == :white
     moves = [[@loc[0] + 1, @loc[1] - 1], [@loc[0] - 1, @loc[1] - 1], [@loc[0], @loc[1] - 1], [@loc[0], @loc[1] - 2]] if @color == :black
     @move_set = []
     @move_set += en_passant_moves if en_passant_moves

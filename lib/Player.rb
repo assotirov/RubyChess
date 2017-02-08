@@ -19,7 +19,7 @@ class HumanPlayer < Player
     move_string = get_move_string
     loop do
       if valid_move?(move_string)
-        parse_move(move_string)
+        return parse_move(move_string)
       elsif move_string.downcase == 'save'
         @game.save_menu
         move_string = get_move_string
@@ -34,7 +34,7 @@ class HumanPlayer < Player
     until 'brnq'.include? choice.downcase do
       puts "You can promote your pawn! Choose:\nK[n]ight\n[Q]ueen\n[B]ishop\n[R]ook\n"
       print '>>'
-      choice = gets.chomp.downcase
+      gets.chomp.downcase
     end
   end
 
@@ -55,9 +55,9 @@ class HumanPlayer < Player
 
   def validate_move_structure(move_string)
     begin
-       clean_move_string(move_string).match(/^[a-h][1-8][a-h][1-8]$/)[0]
+      clean_move_string(move_string).match(/^[a-h][1-8][a-h][1-8]$/)[0]
     rescue NoMethodError
-       false
+      false
     end
   end
 
@@ -77,7 +77,7 @@ class HumanPlayer < Player
     start_y = move_string[1].to_i - 1
     end_x = move_string[2].ord - 97
     end_y = move_string[3].to_i - 1
-    [[start_x,start_y], [end_x,end_y]]
+    [[start_x, start_y], [end_x, end_y]]
   end
 
 end
@@ -98,19 +98,15 @@ class ComputerPlayer < Player
       piece.get_move_set.each do |move_end|
         move_set << [piece.loc, move_end]
         if @game.board.place_occupied_by_color?(move_end, @opposing_color)
-          4.times {
-            move_set << [piece.loc, move_end]
-          }
+          4.times { move_set << [piece.loc, move_end] }
         end
       end
     end
 
     move_set[rand(move_set.size)]
-
   end
 
   def get_promote_choice
     'bnrqqqqq'[rand(8)]
   end
-
 end
