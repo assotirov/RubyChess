@@ -39,7 +39,7 @@ class Board
   def clear_board
     8.times do |col|
       8.times do |row|
-        clear_square([col,row])
+        clear_square([col, row])
       end
     end
     @pieces = []
@@ -75,7 +75,7 @@ class Board
   end
 
   def get_piece(loc)
-    if loc[0].between?(0,7) && loc[1].between?(0, 7)
+    if loc[0].between?(0, 7) && loc[1].between?(0, 7)
       @board_grid[loc[0]][loc[1]]
     else
       nil
@@ -101,15 +101,15 @@ class Board
       false
     end
   end
-
-  def Board.on_board?(loc)
+  
+  def self.on_board?(loc)
     if loc[0].between?(0, 7) && loc[1].between?(0, 7)
       true
     end
   end
 
   def place_occupied_by_color?(place, color)
-    if get_piece(place) == nil
+    if get_piece(place).nil?
       false
     elsif get_piece(place).color == color
       true
