@@ -9,8 +9,10 @@ class Queen < Piece
     @loc = loc
     if color == :black
       @sym = :q
+      @loc = [3, 7] if @loc.nil?
     elsif color == :white
       @sym = :Q
+      @loc = [3, 0] if @loc.nil?
     end
     board.add_piece(self)
     update_move_set
