@@ -1,0 +1,6 @@
+load "King.rb"
+load "Queen.rb"
+load "Bishop.rb"
+load "Knight.rb"
+load "Rook.rb"
+load "Pawn.rb"
