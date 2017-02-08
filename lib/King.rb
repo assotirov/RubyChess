@@ -1,4 +1,4 @@
-load "Piece.rb"
+load 'Piece.rb'
 
 class King < Piece
 
@@ -7,16 +7,16 @@ class King < Piece
 
   def initialize(board, color, loc = nil)
     super(board, color, loc)
-    @name = "King"
+    @name = 'King'
     @castled = false
     @loc = loc
     @in_check = false
     if color == :black
       @sym = :k
-      @loc = [4,7] if @loc.nil?
+      @loc = [4, 7] if @loc.nil?
     elsif color == :white
       @sym = :K
-      @loc = [4,0] if @loc.nil?
+      @loc = [4, 0] if @loc.nil?
     end
     board.add_piece(self)
     update_move_set
@@ -33,14 +33,10 @@ class King < Piece
   def castle_kingside
     if color == :white
       rook = @board.get_piece([7, 0])
-      if rook != nil
-        # puts "ROOK THERE"
+      unless rook.nil?
         unless rook.has_moved
-          # puts "ROOK NOT MOVED"
           unless @board.get_piece([5, 0]) || @board.get_piece([6, 0])
-            # puts "NO PIECES IN THE WAY"
             unless @board.place_under_attack_by_color?([5, 0], :black)
-              # puts "NOT UNDER ATTACK"
               return [6, 0]
             end
           end
@@ -48,7 +44,7 @@ class King < Piece
       end
     elsif color == :black
       rook = @board.get_piece([7, 7])
-      if !rook.nil?
+      unless rook.nil?
         unless rook.has_moved
           unless @board.get_piece([5, 7]) || @board.get_piece([6, 7])
             unless @board.place_under_attack_by_color?([5, 7], :white)
@@ -58,13 +54,13 @@ class King < Piece
         end
       end
     end
-    return nil
+    nil
   end
 
   def castle_queenside
     if color == :white
       rook = @board.get_piece([0, 0])
-      if !rook.nil?
+      unless rook.nil?
         unless rook.has_moved
           unless @board.get_piece([2, 0]) || @board.get_piece([3, 0]) || @board.get_piece([1, 0])
             unless @board.place_under_attack_by_color?([3, 0], :black)
@@ -75,7 +71,7 @@ class King < Piece
       end
     elsif color == :black
       rook = @board.get_piece([0, 7])
-      if !rook.nil?
+      unless rook.nil?
         unless rook.has_moved
           unless @board.get_piece([2, 7]) || @board.get_piece([3, 7]) || @board.get_piece([1, 7])
             unless @board.place_under_attack_by_color?([3, 7], :white)
@@ -85,7 +81,7 @@ class King < Piece
         end
       end
     end
-    return nil
+    nil
   end
 
   def update_move_set
