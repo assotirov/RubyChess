@@ -88,7 +88,7 @@ class Game < Gosu::Window
   attr_accessor :background_image
 
   def initialize
-    super 640, 640
+    super 720, 720
     $window = self
     @board = Board.new
     self.caption = 'Ruby Chess'
