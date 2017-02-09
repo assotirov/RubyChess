@@ -22,6 +22,13 @@ First change the directory to '../RubyChess/lib'.
 Then type the following command: 'ruby play.rb' , to play  
 in the console.
 
+To play the game just type the coordinates of the piece you want  
+to move, like that: 'a2 a3' or 'a2a3' that will move the piece at  
+'a2' to 'a3'. If the move is not possible you will get a massage  
+telling you that.  
+You continue to play until check-mate, stalemate or only the kings are left  
+on the board.
+
 If you want to play with Graphical user interface, type in  
 the console: 'ruby gui_play.rb' (not implemented yet)
 
