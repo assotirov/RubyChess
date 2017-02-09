@@ -5,16 +5,17 @@ load 'Player.rb'
 
 class ChessGame
 
-  attr_reader :board, :pieces
+  attr_reader :board, :pieces , :test_players
 
   def initialize
+    @test_players = [HumanPlayer.new(:white, self),
+                         HumanPlayer.new(:black, self)]
     @board = Board.new
     establish_players
     @current_player = @players[0]
     @next_player = @players[1]
     @move_count = 0
     initialize_piece_set_for_new_game
-    game_loop
   end
 
   def establish_players

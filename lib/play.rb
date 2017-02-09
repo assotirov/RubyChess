@@ -1,3 +1,4 @@
 load 'ChessGame.rb'
 
-ChessGame.new
+game = ChessGame.new
+game.game_loop
