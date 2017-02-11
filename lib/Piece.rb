@@ -16,11 +16,11 @@ class Piece
   end
 
   def to_s
-    return @sym.to_s
+    @sym.to_s
   end
 
   def get_move_set
-    return @move_set
+    @move_set
   end
 
   def set_loc(loc)
@@ -28,11 +28,11 @@ class Piece
   end
 
   def x
-    return @loc[0]
+    @loc[0]
   end
 
   def y
-    return @loc[1]
+    @loc[1]
   end
 
   def move(loc)
@@ -41,7 +41,7 @@ class Piece
   end
 
   def valid_move?(move)
-    return get_move_set.include?(move)
+    get_move_set.include?(move)
   end
 
 end

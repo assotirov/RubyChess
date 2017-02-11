@@ -330,10 +330,9 @@ class ChessGame
     @pieces.each do |piece|
       players_pieces << piece if piece.color == player.color
     end
-    return players_pieces
+    players_pieces
   end
 
-  # This checks to see if move puts player in check
   def check?(move, player)
     if @board.has_piece?(move[1])
       @board.get_piece(move[1]).status = :dead
