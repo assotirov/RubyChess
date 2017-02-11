@@ -14,7 +14,6 @@ class ChessGame
     establish_players
     @current_player = @players[0]
     @next_player = @players[1]
-    @move_count = 0
     initialize_piece_set_for_new_game
   end
 
